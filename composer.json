@@ -1,0 +1,14 @@
+{
+  "name": "tapha/mws-laravel",
+  "description": "A minimal service provider to set up and use the MWS API PHP library in Laravel 5.*",
+  "license": "MIT",
+  "require": {
+    "laravel/framework": "5.0 - 5.2",
+    "cpigroup/php-amazon-mws": "~1.2.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Mws\\Laravel\\": "src/"
+    }
+  }
+}
