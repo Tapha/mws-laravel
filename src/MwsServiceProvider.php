@@ -17,7 +17,7 @@ class MwsServiceProvider extends ServiceProvider {
     public function boot()
     {
         $this->publishes([
-            __DIR__.'/../../amazon-config.php' => config_path('mws.php')
+            base_path('vendor/cpigroup/php-amazon-mws/amazon-config.default.php') => config_path('mws.php')
         ]);
     }
 
