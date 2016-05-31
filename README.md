@@ -1,68 +1,32 @@
-# skovmand/mailchimp-laravel
-A minimal service provider to set up and use the Mailchimp APi v2 PHP library in Laravel v5.*
+# tapha/mws-laravel
+A minimal service provider to set up and use the MWS API PHP library in Laravel 5.*
 
-For Laravel v4 check https://packagist.org/packages/hugofirth/mailchimp
+For the package dependency that supports this service provider, check https://github.com/CPIGroup/phpAmazonMWS
 
 
 ## How it works
-This package contains a service provider, which binds an instance of an initialized Mailchimp client to the IoC-container.
+This package contains a service provider, which binds instances of initialized Mws Objects to the IoC-container.
 
-You recieve the Mailchimp client through depencency injection already set up with your own API key.
+You recieve the Mws Objects through depencency injection already set up with your own Mws API keys and settings.
 
 
-**Usage example**
+**Usage example - Coming soon.**
 
-```php
-class NewsletterManager
-{
-	protected $mailchimp;
-	protected $listId = '1234567890';        // Id of newsletter list
 
-	/**
-	 * Pull the Mailchimp-instance from the IoC-container.
-	 */
-	public function __construct(\Mailchimp $mailchimp)
-	{
-		$this->mailchimp = $mailchimp;
-	}
+Or you can manually instantiate and object by using:
 
-	/**
-	 * Access the mailchimp lists API
-     * for more info check "https://apidocs.mailchimp.com/api/2.0/lists/subscribe.php"
-	 */
-	public function addEmailToList($email)
-	{
-		try {
-			$this->mailchimp
-				->lists
-				->subscribe(
-					$this->listId,
-					['email' => $email]
-				);
-        } catch (\Mailchimp_List_AlreadySubscribed $e) {
-        	// do something
-        } catch (\Mailchimp_Error $e) {
-        	// do something
-        }
-	}
-}
-
-```
-
-Or you can manually instantiate the Mailchimp client by using:
-
-```$mailchimp = app('Mailchimp');```
+```$MwsObject = app('MwsObjectName');```
 
 
 ## Setup
 **Step 1: Adding the dependency to composer.json**
 
 Add this to your composer.json in your Laravel folder.
-Note: Adding this dependency will automatically setup "mailchimp/mailchimp": "~2.0" too.
+Note: Adding this dependency will automatically setup "cpigroup/php-amazon-mws": "~1.2.0" too.
 
 ```json
 "require": {
-    "skovmand/mailchimp-laravel": "1.*",
+    "tapha/mws-laravel": "1.*",
 }
 ```
 
@@ -72,24 +36,20 @@ Register the service provider in ```config/app.php``` by inserting into the ```p
 
 ```php
 'providers' => [
-	Skovmand\Mailchimp\MailchimpServiceProvider::class,
+	Mws\Laravel\MwsServiceProvider::class,
 ]
 ```
 
 **Step 3: From the command-line run**
 
 ```
-php artisan vendor:publish --provider="Skovmand\Mailchimp\MailchimpServiceProvider"
+php artisan vendor:publish --provider="Mws\Laravel\MwsServiceProvider"
 ```
 
-This will publish ```config/mailchimp.php``` to your config folder.
+This will publish ```config/mws.php``` to your config folder.
 
-**Step 4: Edit your .env file**
+**Step 4: Edit your .env file and add your settings into it. You can then reference them within your config/mws.php file**
 
-for more info check "http://kb.mailchimp.com/accounts/management/about-api-keys#Find-or-Generate-Your-API-Key"
-
-```php
-MAILCHIMP_API_KEY="your-api-key-here"
-```
+**Example coming soon!
 
 **Good to go!**
