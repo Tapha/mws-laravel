@@ -6,7 +6,7 @@ For the package dependency that supports this service provider, check https://gi
 
 ## How it works
 
-See https://github.com/CPIGroup/phpAmazonMWS. Simply initialize your objects with your new config data (from the config/mws.php file) like so:
+See https://github.com/CPIGroup/phpAmazonMWS, in the includes/classes for a full list of objects that can be used. For use, simply initialize your objects with your new config data (from the config/mws.php file) like this:
 	
 ```php
 $config = config_path('mws.php');
