@@ -5,18 +5,8 @@ For the package dependency that supports this service provider, check https://gi
 
 
 ## How it works
-This package contains a service provider, which binds instances of initialized Mws Objects to the IoC-container.
-
-You recieve the Mws Objects through depencency injection already set up with your own Mws API keys and settings.
-
 
 **Usage example - Coming soon.**
-
-
-Or you can manually instantiate and object by using:
-
-```$MwsObject = app('MwsObjectName');```
-
 
 ## Setup
 **Step 1: Adding the dependency to composer.json**
@@ -50,7 +40,7 @@ This will publish ```config/mws.php``` to your config folder.
 
 **Step 4: Create an empty log.txt file in your app/config folder**
 
-You may delete this file and set the '```$muteLog```' variable in your ```mws.php``` config to false to turn off logging in production.
+You may delete this file and set the '```$muteLog```' variable in your ```mws.php``` config to true to turn off logging in production.
 
 **Step 5: Edit your .env file and add your mws settings into it. You can then reference them within your config/mws.php file**
 
