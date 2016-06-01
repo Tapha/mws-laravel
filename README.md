@@ -50,7 +50,7 @@ This will publish ```config/mws.php``` to your config folder.
 
 **Step 4: Create an empty log.txt file in your app/config folder**
 
-**Step 5: Edit your .env file and add your settings into it. You can then reference them within your config/mws.php file**
+**Step 5: Edit your .env file and add your mws settings into it. You can then reference them within your config/mws.php file**
 
 **Example coming soon!
 
