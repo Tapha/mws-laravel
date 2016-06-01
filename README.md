@@ -7,10 +7,10 @@ For the package dependency that supports this service provider, check https://gi
 ## How it works
 
 See https://github.com/CPIGroup/phpAmazonMWS. Simply initialize your objects with your new config data (from the config/mws.php file) like so:
-
-$config = config_path('mws.php');
 	
 ```php
+$config = config_path('mws.php');
+
 $amz = new AmazonOrderList($s = null, $mock = false, $m = null, $config); //store name matches the array key in the config file
 $amz->setLimits('Modified', "- 5000 hours");
 $amz->setFulfillmentChannelFilter("FBA"); //no Amazon-fulfilled orders
@@ -19,6 +19,7 @@ $amz->setOrderStatusFilter(
     ); 
 $amz->setUseToken(); //Amazon sends orders 100 at a time, but we want them all
 $amz->fetchOrders();
+
 return $amz->getList();
 ```
 
