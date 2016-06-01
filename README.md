@@ -10,7 +10,8 @@ See https://github.com/CPIGroup/phpAmazonMWS. Simply initialize your objects wit
 
 $config = config_path('mws.php');
 	
-```$amz = new AmazonOrderList($s = null, $mock = false, $m = null, $config); //store name matches the array key in the config file
+```php
+$amz = new AmazonOrderList($s = null, $mock = false, $m = null, $config); //store name matches the array key in the config file
 $amz->setLimits('Modified', "- 5000 hours");
 $amz->setFulfillmentChannelFilter("FBA"); //no Amazon-fulfilled orders
 $amz->setOrderStatusFilter(
@@ -18,7 +19,8 @@ $amz->setOrderStatusFilter(
     ); 
 $amz->setUseToken(); //Amazon sends orders 100 at a time, but we want them all
 $amz->fetchOrders();
-return $amz->getList();```
+return $amz->getList();
+```
 
 **Better usage example - Coming soon.**
 
