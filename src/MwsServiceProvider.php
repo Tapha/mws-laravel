@@ -30,9 +30,6 @@ class MwsServiceProvider extends ServiceProvider {
      */
     public function register()
     {
-        $this->app->bind('AmazonOrderList', function($app) {
-            $config = $app['config']['mws'];
-            return new AmazonOrderList($s = null, $mock = false, $m = null, $config);
-        });
+
     }
 }
