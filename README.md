@@ -13,7 +13,7 @@ $config = config_path('mws.php');
 
 $amz = new AmazonOrderList($s = null, $mock = false, $m = null, $config); //store name matches the array key in the config file
 $amz->setLimits('Modified', "- 5000 hours");
-$amz->setFulfillmentChannelFilter("FBA"); //no Amazon-fulfilled orders
+$amz->setFulfillmentChannelFilter("AFN"); // Amazon-fulfilled orders
 $amz->setOrderStatusFilter(
     	array("Shipped")
     ); 
