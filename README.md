@@ -22,7 +22,7 @@ Note: Adding this dependency will automatically setup "cpigroup/php-amazon-mws":
 }
 ```
 
-**Step 2: Register the service providers**
+**Step 2: Register the service providers and alias**
 
 Register the service providers in ```config/app.php``` by inserting into the ```providers``` array
 
@@ -30,6 +30,14 @@ Register the service providers in ```config/app.php``` by inserting into the ```
 'providers' => [
 	anlutro\LaravelSettings\ServiceProvider::class,
 	Mws\Laravel\MwsServiceProvider::class,
+]
+```
+
+Add the following alias to your 'aliases' array ```config/app.php```
+
+```php
+'aliases' => [
+	'Setting' => 'anlutro\LaravelSettings\Facade'
 ]
 ```
 
