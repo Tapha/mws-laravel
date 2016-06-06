@@ -2,7 +2,7 @@
   "name": "tapha/mws-laravel",
   "description": "A minimal service provider to set up and use the MWS API PHP library in Laravel 5.*",
   "license": "MIT",
-  "keywords": ["API", "Amazon", "PHP", "MWS", "Laravel", "persistent", "Config"],
+  "keywords": ["API", "Amazon", "PHP", "MWS", "Laravel", "Persistent", "Config", "Amazon-api", "FBA"],
   "authors": [
         {
             "name": "Tapha Ngum",
