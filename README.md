@@ -61,7 +61,7 @@ Add the following alias to your 'aliases' array ```config/app.php```
 php artisan vendor:publish"
 ```
 
-This will publish ```config/log.txt``` in the tapha/mws-laravel package to your storage folder under mws/log.txt. It will also the LaravelSettings config file to the config directory, which will give you control over which storage engine to use as well as some storage-specific settings.
+This will publish the LaravelSettings config file to the config directory, which will give you control over which storage engine to use as well as some storage-specific settings.
 
 **Step 4: Add your settings to the LaravelSettings Settings Facade in the 'boot' method of the MwsServiceProvider.php file like this**
 
