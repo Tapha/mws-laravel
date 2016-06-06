@@ -39,14 +39,14 @@ class MwsServiceProvider extends ServiceProvider {
         
         //Set up the MWS configutation as defined in the LaravelSettings Object by app.
 
-        Setting::set("storeName","mystore"); // this will be key for store config, you pass this as an option in setstore() 
-        //Setting::set("authToken",""); // required back from 
-        Setting::set("merchantId","");  
-        Setting::set("marketplaceId","");  
-        Setting::set("keyId","");  
-        Setting::set("secretKey","");  
-        Setting::set("amazonServiceUrl","");  // set to valid node
-        Setting::set("muteLog","false");  //dev purpose, make it true on production 
+        Setting::set("storeName","mystore"); // This will be the key to store the configuration, you pass this as an option to objects you instanstiate with setstore() 
+        Setting::set("authToken",""); //Mws Auth Token - For third party users.
+        Setting::set("merchantId","");  //Seller ID
+        Setting::set("marketplaceId",""); //Marketplace ID 
+        Setting::set("keyId","");  //Key ID
+        Setting::set("secretKey",""); //Secret Key 
+        Setting::set("amazonServiceUrl","");  // Set to your relevant URL if different from default
+        Setting::set("muteLog","false");  //To log requests, make it true on production to stop logging.
 
         $this->readyConfig();
 
