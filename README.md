@@ -28,7 +28,7 @@ See how this all comes together below.
 **Step 1: Adding the dependency to composer.json**
 
 Add this to your composer.json in your Laravel folder.
-Note: Adding this dependency will automatically setup "cpigroup/php-amazon-mws": "~1.2.0" too.
+Note: Adding this dependency will automatically setup "anlutro/l4-settings" too.
 
 ```json
 "require": {
