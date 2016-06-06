@@ -78,7 +78,7 @@ Setting::set("amazonServiceUrl","");  // Set to your relevant URL if different f
 Setting::set("muteLog","false");  //To log requests, make it true on production to stop logging.
 ```
 
-You can then reference them within your app and run Mws API methods like this - Be sure to specify the 'storename' that you set in the 'boot' method as seen below when initialising methods: 
+You can then reference them within your app and run Mws API methods like this - Be sure to specify the 'storename' that you set in the 'boot' method as seen below when initialising Objects: 
 
 ```php
 use Mws\Laravel\AmazonOrderList;
