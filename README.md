@@ -4,7 +4,11 @@ A minimal service provider to set up and use the Amazon MWS API PHP library in L
 For the package dependency that supports this service provider, check https://github.com/CPIGroup/phpAmazonMWS
 
 
-## How it works
+## How it works - Usage Example
+
+```php
+use Mws\Laravel\AmazonOrderList;
+```
 
 ```php
 $amz = new AmazonOrderList(Setting::get('storeName')); //store name matches the array key in the settings
@@ -75,6 +79,10 @@ Setting::set("muteLog","false");  //dev purpose, make it true on production
 ```
 
 You can then reference them within your app and run Mws API methods like this - Be sure to specify the 'storename' that you set in the 'boot' method as seen below when initialising methods: 
+
+```php
+use Mws\Laravel\AmazonOrderList;
+```
 
 ```php
 $amz = new AmazonOrderList(Setting::get('storeName')); //store name matches the array key in the settings
