@@ -6,9 +6,19 @@ For the package dependency that supports this service provider, check https://gi
 
 ## How it works
 
+```php
+$amz = new AmazonOrderList(Setting::get('storeName')); //store name matches the array key in the settings
+$amz->setLimits('Modified', "- 5000 hours");
+$amz->setFulfillmentChannelFilter("FBA"); //no Amazon-fulfilled orders
+$amz->setOrderStatusFilter(
+    array("Shipped")
+    ); 
+$amz->setUseToken(); //Amazon sends orders 100 at a time, but we want them all
+$amz->fetchOrders();
+$amz->getList();
+```
 
-**Usage example - Coming soon.**
-
+See how this all comes together below.
 
 ## Setup
 **Step 1: Adding the dependency to composer.json**
@@ -78,10 +88,6 @@ $amz->fetchOrders();
 $amz->getList();
 ```
 
-The use of the Settings facade allows you to change your settings on the fly, or in the case of multiple users, replace settings with whatever user needs to make an API call at the time. For example, the logged in user. 
-
-Be sure to specifi
-
-**Example coming soon!
+The use of the Settings facade allows you to change your settings on the fly, or in the case of multiple users, replace settings with whatever user needs to make an API call at the time. For example, the logged in user.
 
 **Good to go!**
