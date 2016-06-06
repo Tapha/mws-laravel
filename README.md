@@ -5,25 +5,18 @@ For the package dependency that supports this service provider, check https://gi
 
 
 ## How it works
+This package contains a service provider, which binds instances of initialized Mws Objects to the IoC-container.
 
-See https://github.com/CPIGroup/phpAmazonMWS, in the includes/classes for a full list of objects that can be used. For use, simply initialize your objects with your new config data (from the config/mws.php file) like this:
-	
-```php
-$config = config_path('mws.php');
+You recieve the Mws Objects through depencency injection already set up with your own Mws API keys and settings.
 
-$amz = new AmazonOrderList($s = null, $mock = false, $m = null, $config); //store name matches the array key in the config file
-$amz->setLimits('Modified', "- 5000 hours");
-$amz->setFulfillmentChannelFilter("AFN"); // Amazon-fulfilled orders
-$amz->setOrderStatusFilter(
-    	array("Shipped")
-    ); 
-$amz->setUseToken(); //Amazon sends orders 100 at a time, but we want them all
-$amz->fetchOrders();
 
-return $amz->getList();
-```
+**Usage example - Coming soon.**
 
-**Better usage example - Coming soon.**
+
+Or you can manually instantiate and object by using:
+
+```$MwsObject = app('MwsObjectName');```
+
 
 ## Setup
 **Step 1: Adding the dependency to composer.json**
@@ -55,11 +48,7 @@ php artisan vendor:publish --provider="Mws\Laravel\MwsServiceProvider"
 
 This will publish ```config/mws.php``` to your config folder.
 
-**Step 4: Create an empty log.txt file in your app/config folder**
-
-You may delete this file and set the '```$muteLog```' variable in your ```mws.php``` config to **true** to turn off logging in production.
-
-**Step 5: Edit your .env file and add your mws settings into it. You can then reference to them within your config/mws.php file**
+**Step 4: Edit your .env file and add your settings into it. You can then reference them within your config/mws.php file**
 
 **Example coming soon!
 
