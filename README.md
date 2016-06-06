@@ -5,17 +5,9 @@ For the package dependency that supports this service provider, check https://gi
 
 
 ## How it works
-This package contains a service provider, which binds instances of initialized Mws Objects to the IoC-container.
-
-You recieve the Mws Objects through depencency injection already set up with your own Mws API keys and settings.
 
 
 **Usage example - Coming soon.**
-
-
-Or you can manually instantiate and object by using:
-
-```$MwsObject = app('MwsObjectName');```
 
 
 ## Setup
@@ -30,12 +22,13 @@ Note: Adding this dependency will automatically setup "cpigroup/php-amazon-mws":
 }
 ```
 
-**Step 2: Register the service provider**
+**Step 2: Register the service providers**
 
-Register the service provider in ```config/app.php``` by inserting into the ```providers``` array
+Register the service providers in ```config/app.php``` by inserting into the ```providers``` array
 
 ```php
 'providers' => [
+	anlutro\LaravelSettings\ServiceProvider::class,
 	Mws\Laravel\MwsServiceProvider::class,
 ]
 ```
@@ -43,12 +36,43 @@ Register the service provider in ```config/app.php``` by inserting into the ```p
 **Step 3: From the command-line run**
 
 ```
-php artisan vendor:publish --provider="Mws\Laravel\MwsServiceProvider"
+php artisan vendor:publish"
 ```
 
-This will publish ```config/mws.php``` to your config folder.
+This will publish ```config/log.txt``` in the tapha/mws-laravel package to your storage folder under mws/log.txt. It will also the LaravelSettings config file to the config directory, which will give you control over which storage engine to use as well as some storage-specific settings.
 
-**Step 4: Edit your .env file and add your settings into it. You can then reference them within your config/mws.php file**
+**Step 4: Add your settings to the LaravelSettings Settings Facade in the 'boot' method of the MwsServiceProvider.php file like this **
+
+```php
+//Set up the MWS configutation as defined in the LaravelSettings Object by app.
+
+Setting::set("storeName","mystore"); // this will be key for store config, you pass this as an option in setstore() 
+Setting::set("authToken",""); // required back from 
+Setting::set("merchantId","");  
+Setting::set("marketplaceId","");  
+Setting::set("keyId","");  
+Setting::set("secretKey","");  
+Setting::set("amazonServiceUrl","");  // set to valid node
+Setting::set("muteLog","false");  //dev purpose, make it true on production 
+```
+
+You can then reference them within your app and run Mws API methods like this - Be sure to specify the 'storename' that you set in the 'boot' method as seen below when initialising methods: 
+
+```php
+$amz = new AmazonOrderList(Setting::get('storeName')); //store name matches the array key in the settings
+$amz->setLimits('Modified', "- 5000 hours");
+$amz->setFulfillmentChannelFilter("FBA"); //no Amazon-fulfilled orders
+$amz->setOrderStatusFilter(
+    array("Shipped")
+    ); 
+$amz->setUseToken(); //Amazon sends orders 100 at a time, but we want them all
+$amz->fetchOrders();
+$amz->getList();
+```
+
+The use of the Settings facade allows you to change your settings on the fly, or in the case of multiple users, replace settings with whatever user needs to make an API call at the time. For example, the logged in user. 
+
+Be sure to specifi
 
 **Example coming soon!
 
