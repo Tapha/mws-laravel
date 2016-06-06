@@ -11,9 +11,9 @@ use Mws\Laravel\AmazonOrderList;
 ```
 
 ```php
-$amz = new AmazonOrderList(Setting::get('storeName')); //store name matches the array key in the settings
+$amz = new AmazonOrderList(Setting::get('storeName')); //Store name matches the array key in the settings
 $amz->setLimits('Modified', "- 5000 hours");
-$amz->setFulfillmentChannelFilter("AFN"); //no Amazon-fulfilled orders
+$amz->setFulfillmentChannelFilter("AFN"); //Amazon-fulfilled orders
 $amz->setOrderStatusFilter(
     array("Shipped")
     ); 
@@ -85,7 +85,7 @@ use Mws\Laravel\AmazonOrderList;
 ```
 
 ```php
-$amz = new AmazonOrderList(Setting::get('storeName')); //store name matches the array key in the settings
+$amz = new AmazonOrderList(Setting::get('storeName')); //Store name matches the array key in the settings
 $amz->setLimits('Modified', "- 5000 hours");
 $amz->setFulfillmentChannelFilter("AFN"); //Amazon-fulfilled orders
 $amz->setOrderStatusFilter(
