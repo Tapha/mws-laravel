@@ -1,7 +1,7 @@
 # tapha/mws-laravel
 A minimal service provider to set up and use the Amazon MWS API PHP library in Laravel 5.*
 
-For the package dependency that supports this service provider, check https://github.com/CPIGroup/phpAmazonMWS
+Forked from https://github.com/CPIGroup/phpAmazonMWS
 
 
 ## How it works - Usage Example
