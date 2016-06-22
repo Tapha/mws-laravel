@@ -474,7 +474,7 @@ abstract class AmazonCore
             ],
 
             // Default service URL
-            'AMAZON_SERVICE_URL' => 'https://mws.amazonservices.com/',
+            'AMAZON_SERVICE_URL' => Setting::get('amazonServiceUrl'),
 
             'muteLog' => false
         ];

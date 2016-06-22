@@ -1,5 +1,6 @@
 <?php namespace Mws\Laravel;
 
+use Config;
 use Mws\Laravel\AmazonCore;
 
 /**
@@ -48,17 +49,13 @@ abstract class AmazonProductsCore extends AmazonCore
     {
         parent::__construct($s, $mock, $m, $config);
         include($this->env);
-        if (file_exists($this->config)) {
-            include($this->config);
-        } else {
-            throw new Exception('Config file does not exist!');
-        }
 
         if (isset($AMAZON_VERSION_PRODUCTS)) {
             $this->urlbranch = 'Products/' . $AMAZON_VERSION_PRODUCTS;
             $this->options['Version'] = $AMAZON_VERSION_PRODUCTS;
         }
 
+        $store = Config::get('amazon-mws.store');
 
         if (isset($store[$s]) && array_key_exists('marketplaceId', $store[$s])) {
             $this->options['MarketplaceId'] = $store[$s]['marketplaceId'];
