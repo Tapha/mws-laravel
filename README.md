@@ -1,5 +1,3 @@
-# THIS PACKAGE IS NO LONGER MAINTAINED!! FEEL FREE TO MODIFY AND USE BUT AT YOUR OWN RISK!
-
 # tapha/mws-laravel
 A minimal service provider to set up and use the Amazon MWS API PHP library in Laravel 5.*
 
